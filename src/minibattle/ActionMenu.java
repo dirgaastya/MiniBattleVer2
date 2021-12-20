@@ -85,6 +85,10 @@ public class ActionMenu {
                     break;
                 case "3":
                     System.out.println("\n===========Info Stat Senjata=========");
+                    System.out.println("\n ELucidator\t\t: ATK += 250");
+                    System.out.println(" Dark Repulser\t\t: ATK += 300");
+                    System.out.println(" Ice Queen Wand\t\t: MATK += 250");
+                    System.out.println(" Lightning Staff\t: MATK += 300\n");
                     backToMenu();
                     break;
                 case "4":
