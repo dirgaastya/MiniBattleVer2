@@ -110,7 +110,6 @@ public class ActionMenu {
         System.out.println("\n===========Pilih Equipment===========");
         System.out.println("1. Sword              (Rekomendasi Job Class: Basic, Warrior)");
         System.out.println("2. Magic Wand         (Rekomendasi Job Class: Mage)");
-        System.out.println("3. Axe                (Rekomendasi Job Class: Warrior)");
         System.out.println("=====================================");
         System.out.print("Pilih Equipment\t: ");
         input = newObj.nextLine();
@@ -127,6 +126,18 @@ public class ActionMenu {
         input = newObj.nextLine();
         return input;
     }
+
+    public String selectWand() {
+        String input;
+        System.out.println("\n===========Pilih Sword===========");
+        System.out.println("1. Ice Queen Wand            ");
+        System.out.println("2. Lightning Staff         ");
+        System.out.println("=====================================");
+        System.out.print("Pilih Equipment\t: ");
+        input = newObj.nextLine();
+        return input;
+    }
+
     
     public String weaponOption(){
         String input;
@@ -138,10 +149,18 @@ public class ActionMenu {
         input = newObj.nextLine();
         return input;
     }
+
+    public void profile(String weapon,String heroName,Hero hero) {
+        System.out.println("\n=========================");
+        System.out.println("     "+heroName +"'s Profile");
+        System.out.println("=========================");
+        System.out.println("Weapon\t: " + weapon);
+        hero.showAttribut();
+    }
     
     public void backToMenu() {
     System.out.println("");
-    System.out.print("Tekan [Enter] untuk kembali..");
+    System.out.print("Tekan [Enter] untuk Melanjutkan..");
     newObj.nextLine();
     }
 }

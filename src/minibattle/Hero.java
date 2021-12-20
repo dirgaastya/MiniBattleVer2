@@ -25,6 +25,10 @@ public class Hero {
         return hp;
     }
 
+    public int getAtk(){
+        return atk;
+    }
+
     public void attack(Monster enemy){
         int damage = this.atk-enemy.getDef();
         if (damage<=0){

@@ -16,10 +16,10 @@ public class Action extends ActionMenu {
             System.out.println("Anda Memilih Job Basic Hero");
         } else if (input.equalsIgnoreCase("2")) {
             
-            System.out.println("Anda Memilih Job Mage Hero");
+            System.out.println("Anda Memilih Job Mage ");
         } else if (input.equalsIgnoreCase("3")) {
             
-            System.out.println("Anda Memilih Job Warior Hero");
+            System.out.println("Anda Memilih Job Warrior ");
         }
     }
 
@@ -36,8 +36,7 @@ public class Action extends ActionMenu {
         return monsterValue;
     }
     
-    public void basicFight(Hero hero, String monsterValue) {
-        
+    public void basicFight(Hero hero, String monsterValue) {    
         Monster newSlimeMonster = new Slime();
         Monster newGoblinMonster = new Goblin();
         Monster newIbdMonster = new IbdMonster();
@@ -47,25 +46,21 @@ public class Action extends ActionMenu {
         while (status != true) {
             // Monster Mati
             if (newSlimeMonster.getHp() <= 0) {
-                System.out.println("Program Selesai");
+                System.out.println("Pertempuran Berakhir ! \n");
                 status = true;
-                System.exit(0);
                 break;
             }else if (newGoblinMonster.getHp() <= 0) {
-                System.out.println("Program Selesai");
+                System.out.println("Pertempuran Berakhir ! \n");
                 status = true;
-                System.exit(0);
                 break;
             }else if (newIbdMonster.getHp() <=0){
-                System.out.println("Program Selesai");
+                System.out.println("Pertempuran Berakhir ! \n");
                 status = true;
-                System.exit(0);
                 break;
             }
             // Hero Mati
             if (hero.getHp() <= 0) {
                 status = true;
-                System.exit(0);
                 break;
             }           
             String input = getFightMenu();
@@ -131,25 +126,21 @@ public class Action extends ActionMenu {
         while (status != true) {
             // Monster Mati
             if (newSlimeMonster.getHp() <= 0) {
-                System.out.println("Program Selesai");
+                System.out.println("Pertempuran Berakhir ! \n");
                 status = true;
-                System.exit(0);
                 break;
             }else if (newGoblinMonster.getHp() <= 0) {
-                System.out.println("Program Selesai");
+                System.out.println("Pertempuran Berakhir ! \n");
                 status = true;
-                System.exit(0);
                 break;
             }else if (newIbdMonster.getHp() <=0){
-                System.out.println("Program Selesai");
+                System.out.println("Pertempuran Berakhir ! \n");
                 status = true;
-                System.exit(0);
                 break;
             }
             // Hero Mati
             if (mage.getHp() <= 0) {
                 status = true;
-                System.exit(0);
                 break;
             }   
             String input = getFightMenu();
@@ -234,25 +225,21 @@ public class Action extends ActionMenu {
         while (status != true) {
             // Monster Mati
             if (newSlimeMonster.getHp() <= 0) {
-                System.out.println("Program Selesai");
+                System.out.println("Pertempuran Berakhir ! \n");
                 status = true;
-                System.exit(0);
                 break;
             }else if (newGoblinMonster.getHp() <= 0) {
-                System.out.println("Program Selesai");
+                System.out.println("Pertempuran Berakhir ! \n");
                 status = true;
-                System.exit(0);
                 break;
             }else if (newIbdMonster.getHp() <=0){
-                System.out.println("Program Selesai");
+                System.out.println("Pertempuran Berakhir ! \n");
                 status = true;
-                System.exit(0);
                 break;
             }
             // Hero Mati
             if (warrior.getHp() <= 0) {
                 status = true;
-                System.exit(0);
                 break;
             }   
             String input = getFightMenu();
@@ -326,4 +313,171 @@ public class Action extends ActionMenu {
             }
         }
     }
+
+    public String weaponSelector(String heroValue) {
+        String option = null;
+        boolean status = false;
+        while(status != true){
+            String weapon=getWeapon();
+            switch(heroValue){
+                case "1" :
+                if(weapon.equalsIgnoreCase("1")){
+                    option=selectSword();
+                    status = true;
+                    break;
+                }
+        
+                else if(weapon.equalsIgnoreCase("2")){
+                    System.out.println("Belum memenuhi syarat! Hanya dapat digunakan oleh Mage.");
+                    break;
+                }
+
+                else{
+                    System.out.println("\nMaaf pilihan Anda tidak tersedia!");
+                }
+        
+                break;
+    
+                case "2":
+                if(weapon.equalsIgnoreCase("1")){
+                    System.out.println("Belum memenuhi syarat! Hanya dapat digunakan oleh Basic & Warrior");
+                    break;
+                }
+        
+                else if(weapon.equalsIgnoreCase("2")){
+                    option = selectWand();
+                    status = true;
+                    break;
+                } 
+
+                else{
+                    System.out.println("\nMaaf pilihan Anda tidak tersedia!");
+                }
+        
+                break;
+    
+                case "3" :
+                if(weapon.equalsIgnoreCase("1")){
+                    option=selectSword();
+                    status = true;
+                    break;
+                }
+        
+                else if(weapon.equalsIgnoreCase("2")){
+                    System.out.println("Belum memenuhi syarat! Hanya dapat digunakan oleh Mage.");
+                    break;
+                }
+
+                else{
+                    System.out.println("\nMaaf pilihan Anda tidak tersedia!");
+                }
+                break;
+            }
+        }
+       return option;
+    }
+
+    public String selectBasic(Hero hero,Weapon dummy,String opt) {
+        String weapOpt = weaponOption();
+        String name=null;
+        switch(weapOpt){
+            case "1":
+                if(opt.equalsIgnoreCase("1")){
+                    hero.atk+=dummy.weapon1();
+                    name = dummy.weapName("Elucidator");
+                }else if(opt.equalsIgnoreCase("2")){
+                    hero.atk+=dummy.weapon2();
+                    name = dummy.weapName("Dark Repulser");
+                }
+                else{
+                    System.out.println("\nMaaf pilihan Anda tidak tersedia!");
+                }
+                dummy.equipWeapon(name);
+                break;
+            case "2":
+                if(opt.equalsIgnoreCase("1")){
+                    hero.atk-=dummy.weapon1();
+                    name = dummy.weapName("Elucidator");
+                }else if(opt.equalsIgnoreCase("2")){
+                    hero.atk-=dummy.weapon2();
+                    name = dummy.weapName("Dark Repulser");
+                }else{
+                    System.out.println("\nMaaf pilihan Anda tidak tersedia!");
+                }
+                dummy.noWeapon(name);
+                name = "None";
+                break;
+        }
+        return name;
+    }
+
+    public String selectMage(Mage hero,Weapon dummy,String opt) {
+        String weapOpt = weaponOption();
+        String name=null;
+        switch(weapOpt){
+            case "1":
+                if(opt.equalsIgnoreCase("1")){
+                    hero.matk+=dummy.weapon1();
+                    name=dummy.weapName("Ice Queen Wand");
+                }else if(opt.equalsIgnoreCase("2")){
+                    hero.matk+=dummy.weapon2();
+                    name=dummy.weapName("Lightning Staff ");
+                }else{
+                    System.out.println("\nMaaf pilihan Anda tidak tersedia!");
+                }
+                dummy.equipWeapon(name);
+                break;
+            case "2":
+                if(opt.equalsIgnoreCase("1")){
+                    hero.matk-=dummy.weapon1();
+                    name=dummy.weapName("Ice Queen Wand");
+                }else if(opt.equalsIgnoreCase("2")){
+                    hero.matk-=dummy.weapon2();
+                    name=dummy.weapName("Lightning Staff ");
+                }else{
+                    System.out.println("\nMaaf pilihan Anda tidak tersedia!");
+                }
+                dummy.noWeapon(name);
+                name = "None";
+                break;
+        }
+        return name;
+    }
+
+    public String selectWarrior(Warrior hero,Weapon dummy,String opt) {
+        String weapOpt = weaponOption();
+        String name=null;
+        switch(weapOpt){
+            case "1":
+                if(opt.equalsIgnoreCase("1")){
+                    hero.atk+=dummy.weapon1();
+                    name = dummy.weapName("Elucidator");
+                }else if(opt.equalsIgnoreCase("2")){
+                    hero.atk+=dummy.weapon2();
+                    name = dummy.weapName("Dark Repulser");
+                }else{
+                    System.out.println("\nMaaf pilihan Anda tidak tersedia!");
+                }
+                dummy.equipWeapon(name);
+                break;
+            case "2":
+                if(opt.equalsIgnoreCase("1")){
+                hero.atk-=dummy.weapon1();
+                name = dummy.weapName("Elucidator");
+                }else if(opt.equalsIgnoreCase("2")){
+                hero.atk-=dummy.weapon2();
+                name = dummy.weapName("Dark Repulser");
+                }else{
+                    System.out.println("\nMaaf pilihan Anda tidak tersedia!");
+                }
+                dummy.noWeapon(name);
+                name = "None";
+                break;
+        }
+        return name;
+    }
+    
 }
+
+
+    

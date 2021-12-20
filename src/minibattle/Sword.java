@@ -11,30 +11,34 @@ package minibattle;
 public class Sword implements Weapon{
 
     private int powerUp=0;
-    private String swordName=null;
 
     @Override
-    public void equipWeapon() {
-        System.out.println("\nEquipment Sword dipasang");
+    public void equipWeapon(String name) {
+        System.out.println("\nEquipment "+ name +  " dipasang");
     }
 
     @Override
-    public void noWeapon() {
-        System.out.println("\nEquipment Sword dilepas");
+    public void noWeapon(String name) {
+        System.out.println("\nEquipment "+ name +" dilepas");
     }
 
-    public int elucidator() {
+    @Override
+    public int weapon1() {
         this.powerUp += 250;
         return this.powerUp;
     }
 
-    public int darkRepulser() {
+    @Override
+    public int weapon2() {
         this.powerUp += 300;
         return this.powerUp;
     }
 
-    public void setSwordName(String name) {
-        name = this.swordName;
+    @Override
+    public String weapName(String name){
+        return name;
     }
+
+    
     
 }

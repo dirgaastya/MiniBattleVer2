@@ -10,6 +10,9 @@ package minibattle;
  */
 public interface Weapon {
     
-    void equipWeapon();
-    void noWeapon();
+    void equipWeapon(String name);
+    void noWeapon(String name);
+    int weapon1();
+    int weapon2();
+    String weapName(String name);
 }

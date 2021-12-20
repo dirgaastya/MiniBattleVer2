@@ -10,30 +10,32 @@ package minibattle;
  */
 public class MagicWand implements Weapon {
     private int powerUp=0;
-    private String swordName=null;
-
-
-    @Override
-    public void equipWeapon() {
-        System.out.println("\nEquipment Magic Wand dipasang");
-    }
-
-    @Override
-    public void noWeapon() {
-        System.out.println("\nEquipment Magic Wand dilepas");
-    }
     
-    public int iceQueenWand() {
+
+
+    @Override
+    public void equipWeapon(String name) {
+        System.out.println("\nEquipment " + name +" dipasang");
+    }
+
+    @Override
+    public void noWeapon(String name) {
+        System.out.println("\nEquipment "+ name +" dilepas");
+    }
+
+    @Override
+    public int weapon1() {
         this.powerUp += 250;
         return this.powerUp;
     }
-
-    public int lightningStaff() {
+    @Override
+    public int weapon2() {
         this.powerUp += 300;
         return this.powerUp;
     }
 
-    public void setSwordName(String name) {
-        name = this.swordName;
+    @Override
+    public String weapName(String name){
+        return name;
     }
 }
