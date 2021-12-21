@@ -97,6 +97,7 @@ public class MainBattle {
                 }
                 actionMenu.backToMenu();
             }
+            
             //Menentukan Lawan
             else if (input.equalsIgnoreCase("3")) {
                 String option = actionMenu.getMonster();
